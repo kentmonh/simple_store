@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'products/index'
-  get 'products/view'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Load and display all products
+  get "/products", to: "products#index", as: "products"
+
+  # Load and display a single product
+  get "/products/:id", to: "products#show", as: "product", constraints: { id: /\d+/ }
 end
